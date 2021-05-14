@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OnlineShopping.Domain.Model.Goods
+﻿namespace OnlineShopping.Domain.Model.Goods
 {
     public class Product : Entity<long>
     {
