@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopping.Domain.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Application.Tests.Unit", "src\test\OnlineShopping.Application.Tests.Unit\OnlineShopping.Application.Tests.Unit.csproj", "{0D16E298-66F0-4904-B815-E14B0E94D41D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopping.Application.Tests.Integration", "src\test\OnlineShopping.Application.Tests.Integration\OnlineShopping.Application.Tests.Integration.csproj", "{6E985DF1-938E-4C76-923F-5FAEB9ECF85C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{0D16E298-66F0-4904-B815-E14B0E94D41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D16E298-66F0-4904-B815-E14B0E94D41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D16E298-66F0-4904-B815-E14B0E94D41D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E985DF1-938E-4C76-923F-5FAEB9ECF85C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E985DF1-938E-4C76-923F-5FAEB9ECF85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E985DF1-938E-4C76-923F-5FAEB9ECF85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E985DF1-938E-4C76-923F-5FAEB9ECF85C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{AFB036B9-77A6-4708-85F4-801EFDBCF63D} = {6BD2B98D-F41A-4040-BE8B-4CCC85AAA2A5}
 		{4CBFDE49-08AC-4CD0-A405-A0424BE1AD32} = {5439AE93-37A6-4570-8BDC-31488F36023A}
 		{0D16E298-66F0-4904-B815-E14B0E94D41D} = {5439AE93-37A6-4570-8BDC-31488F36023A}
+		{6E985DF1-938E-4C76-923F-5FAEB9ECF85C} = {9287ED48-0B94-4D63-806A-C03E245295B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27CC8678-9B4A-4A88-A0F2-9C611EC9E519}

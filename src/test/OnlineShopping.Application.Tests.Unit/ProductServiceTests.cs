@@ -26,6 +26,7 @@ namespace OnlineShopping.Application.Tests.Unit
 
             var dto = new RegisterProductDto()
             {
+                Id = 1,
                 Code = "S7532",
                 Title = "Samsung",
                 MinimumInventory = 2,
@@ -34,7 +35,7 @@ namespace OnlineShopping.Application.Tests.Unit
 
             service.Register(dto);
 
-            var expected = new Product("Samsung", "S7532", 2, 1);
+            var expected = new Product(1, "Samsung", "S7532", 2, 1);
 
             repository.Received(1).AddAsync(Verify.That<Product>(a => a.Should().BeEquivalentTo(expected)));
         }

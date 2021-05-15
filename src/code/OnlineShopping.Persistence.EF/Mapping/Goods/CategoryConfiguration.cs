@@ -11,7 +11,7 @@ namespace OnlineShopping.Persistence.EF.Mapping.Goods
             builder.Property(category => category.Title).IsRequired().IsUnicode().HasMaxLength(100);
             builder.HasIndex(category => category.Title).IsUnique();
 
-            builder.HasData(new Category(title: "Mobile"));
+            builder.HasData(new Category(1, "Mobile"));
         }
     }
 }

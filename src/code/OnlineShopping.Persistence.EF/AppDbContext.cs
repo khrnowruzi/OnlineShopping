@@ -6,9 +6,10 @@ namespace OnlineShopping.Persistence.EF
 {
     public class AppDbContext : IdentityDbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Product> Products { get; protected set; }
+        public DbSet<Category> Categories { get; protected set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

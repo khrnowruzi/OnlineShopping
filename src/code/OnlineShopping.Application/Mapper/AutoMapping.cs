@@ -8,7 +8,9 @@ namespace OnlineShopping.Application.Mapper
     {
         public AutoMapping()
         {
-            CreateMap<RegisterProductDto, Product>();
+            CreateMap<RegisterProductDto, Product>()
+                .ForMember(product => product.Id, opt => opt.Ignore())
+                .ReverseMap();
         }
     }
 }
