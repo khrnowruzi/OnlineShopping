@@ -9,17 +9,20 @@ Background:
 
 Scenario: Register an IncomingInvoice
 	When I register the following IncomingInvoice
-		| ProductCode | Count | Date       | InvoiceNumber |
-		| S7532       | 10    | 2021/11/05 | 2110          |
-	Then I should be able to see the goods entering the warehouse in the list of goods for sell
+		| Date  | InvoiceNumber |
+		| Today | 2110          |
+	And I have one product in invoice with the following info
+		| ProductCode | Count | Price |
+		| S7532       | 10    | 10000 |
+	Then I should be able to see the product in the list of goods for sell
 
 Scenario: View Inventory List
-	Given I have already register of the following IncomingIvoice
-		| ProductCode | Count | Date       | InvoiceNumber |
-		| S7532       | 10    | 2021/11/05 | 2110          |
+	Given I have already register of the following IncomingInvoice
+		| ProductCode | Count | Date  | InvoiceNumber |
+		| S7532       | 10    | Today | 2110          |
 	And I have already register of the following SalesInvoice
-		| InvoiceNumber | CustomerNumber | Date       | ProductCode | Count | Price |
-		| 8820          | Khashayar      | 2021/11/05 | S7532       | 2     | 30000 |
+		| InvoiceNumber | CustomerNumber | Date  | ProductCode | Count | Price |
+		| 8820          | Khashayar      | Today | S7532       | 2     | 30000 |
 	When I open the page of view inventory list
 	Then I should be able to see the following inventory
 		| ProductCode | Title   | CategoryId | Count | MinimumInventory | State |
