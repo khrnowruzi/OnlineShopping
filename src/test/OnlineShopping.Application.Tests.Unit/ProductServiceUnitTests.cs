@@ -16,7 +16,7 @@ namespace OnlineShopping.Application.Tests.Unit
     public class ProductServiceUnitTests
     {
         [Fact]
-        public async Task Register_a_product_using_service()
+        public async Task Register_a_product()
         {
             var repository = Substitute.For<IProductRepository>();
             var unitOfWork = Substitute.For<IUnitOfWork>();
