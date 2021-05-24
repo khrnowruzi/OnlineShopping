@@ -2,12 +2,12 @@ using FluentAssertions;
 using OnlineShopping.Domain.Model.Goods;
 using Xunit;
 
-namespace OnlineShopping.Domain.Tests.Unit
+namespace OnlineShopping.Domain.Tests.Unit.Goods
 {
-    public class GoodsTests
+    public class ProductUnitTests
     {
         [Fact]
-        public void product_constructed_properly()
+        public void Product_constructed_properly()
         {
             var product = new Product(1, "Samsung", "S7532", 2, 1);
 
@@ -16,15 +16,6 @@ namespace OnlineShopping.Domain.Tests.Unit
             product.Code.Should().Be("S7532");
             product.MinimumInventory.Should().Be(2);
             product.CategoryId.Should().Be(1);
-        }
-
-        [Fact]
-        public void category_constructor_properly()
-        {
-            var category = new Category(1, "Mobile");
-
-            category.Id.Should().Be(1);
-            category.Title.Should().Be("Mobile");
         }
     }
 }

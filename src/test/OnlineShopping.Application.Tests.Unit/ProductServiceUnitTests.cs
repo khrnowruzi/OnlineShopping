@@ -1,9 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using FluentAssertions;
 using NSubstitute;
-using OnlineShopping.Application.Goods;
 using OnlineShopping.Application.Mapper;
-using OnlineShopping.Application.Models;
+using OnlineShopping.Application.Models.Goods;
+using OnlineShopping.Application.Services.Goods;
 using OnlineShopping.Domain.Model.Goods;
 using OnlineShopping.Persistence.EF.Repository.Goods;
 using OnlineShopping.Persistence.EF.UnitOfWork;
@@ -12,19 +13,18 @@ using Xunit;
 
 namespace OnlineShopping.Application.Tests.Unit
 {
-    public class ProductServiceTests
+    public class ProductServiceUnitTests
     {
         [Fact]
-        public void saves_a_product_into_database()
+        public async Task Register_a_product_using_service()
         {
             var repository = Substitute.For<IProductRepository>();
             var unitOfWork = Substitute.For<IUnitOfWork>();
-            var mapper = new MapperConfiguration(mc =>
-                mc.AddProfile(new AutoMapping())).CreateMapper();
+            var mapper = new MapperConfiguration(mc => mc.AddProfile(new AutoMapping())).CreateMapper();
 
             var service = new ProductService(unitOfWork, repository, mapper);
 
-            var dto = new RegisterProductDto()
+            var dto = new ProductRegisterDto()
             {
                 Id = 1,
                 Code = "S7532",
@@ -33,11 +33,11 @@ namespace OnlineShopping.Application.Tests.Unit
                 CategoryId = 1
             };
 
-            service.Register(dto);
+            await service.RegisterProduct(dto);
 
             var expected = new Product(1, "Samsung", "S7532", 2, 1);
 
-            repository.Received(1).AddAsync(Verify.That<Product>(a => a.Should().BeEquivalentTo(expected)));
+            await repository.Received(1).AddAsync(Verify.That<Product>(a => a.Should().BeEquivalentTo(expected)));
         }
     }
 }

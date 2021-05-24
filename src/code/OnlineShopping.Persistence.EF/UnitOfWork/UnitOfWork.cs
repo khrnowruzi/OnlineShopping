@@ -2,9 +2,9 @@
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly AppDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
-        public UnitOfWork(AppDbContext dbContext)
+        public UnitOfWork(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

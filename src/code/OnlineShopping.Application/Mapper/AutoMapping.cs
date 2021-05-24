@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using OnlineShopping.Application.Models;
+using OnlineShopping.Application.Models.Goods;
 using OnlineShopping.Domain.Model.Goods;
 
 namespace OnlineShopping.Application.Mapper
@@ -8,7 +8,7 @@ namespace OnlineShopping.Application.Mapper
     {
         public AutoMapping()
         {
-            CreateMap<RegisterProductDto, Product>()
+            CreateMap<ProductRegisterDto, Product>()
                 .ForMember(product => product.Id, opt => opt.Ignore())
                 .ReverseMap();
         }

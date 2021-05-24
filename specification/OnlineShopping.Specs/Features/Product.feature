@@ -1,4 +1,4 @@
-﻿Feature: Defining Goods
+﻿Feature: Managing Product
 	In order to define a product
 	As a seller
 	I want to be able to define a product
@@ -8,4 +8,4 @@ Scenario: Define a product
 	When I define the following product
 		| Title   | Code  | MinimumInventory | CategoryId |
 		| Samsung | S7532 | 2                | 1          |
-	Then I should be able to see the product in the list of goods
+	Then I should be able to see the product in the list of products

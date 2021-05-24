@@ -1,31 +1,30 @@
-﻿using FluentAssertions;
-using OnlineShopping.Application.Goods;
-using OnlineShopping.Application.Models;
+﻿using System.Threading.Tasks;
+using FluentAssertions;
+using OnlineShopping.Application.Models.Goods;
+using OnlineShopping.Application.Services.Goods;
 using OnlineShopping.Persistence.EF.Repository.Goods;
 using Xunit;
 
 namespace OnlineShopping.Application.Tests.Integration
 {
-    public class GoodsServiceTests : HelpTest
+    public class ProductServiceIntegrationTests : IntegrationHookTest
     {
         [Fact]
-        public void saves_a_product_into_database()
+        public async Task Saves_a_product_into_database()
         {
             var repository = new ProductRepository(DbContext);
-
             var service = new ProductService(UnitOfWork, repository, Mapper);
-
-            var newId = service.Register(new RegisterProductDto()
+            var newProductId = await service.RegisterProduct(new ProductRegisterDto()
             {
                 Code = "S7532",
                 Title = "Samsung",
                 MinimumInventory = 2,
                 CategoryId = 1
-            }).Result;
+            });
 
-            var expected = new RegisterProductDto()
+            var expected = new ProductRegisterDto()
             {
-                Id = newId,
+                Id = newProductId,
                 Code = "S7532",
                 Title = "Samsung",
                 MinimumInventory = 2,
@@ -33,7 +32,7 @@ namespace OnlineShopping.Application.Tests.Integration
             };
 
             this.DetachAllEntities();
-            var newProduct = service.GetById(newId).Result;
+            var newProduct = service.GetProductById(newProductId).Result;
             newProduct.Should().BeEquivalentTo(expected);
         }
     }

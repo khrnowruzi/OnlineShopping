@@ -9,7 +9,7 @@ using OnlineShopping.Persistence.EF;
 
 namespace OnlineShopping.Persistence.EF.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210514150111_GoogdsStep")]
     partial class GoogdsStep
     {

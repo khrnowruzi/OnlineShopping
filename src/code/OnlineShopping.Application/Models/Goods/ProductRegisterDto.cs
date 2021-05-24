@@ -1,6 +1,6 @@
-﻿namespace OnlineShopping.Application.Models
+﻿namespace OnlineShopping.Application.Models.Goods
 {
-    public class RegisterProductDto
+    public class ProductRegisterDto
     {
         public long Id { get; set; }
         public string Title { get; set; }

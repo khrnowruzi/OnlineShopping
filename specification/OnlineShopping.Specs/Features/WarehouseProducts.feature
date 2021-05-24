@@ -1,5 +1,5 @@
-﻿Feature: Managing Warehouse Goods
-	In order to register an invoice of goods that want to enter the warehouse
+﻿Feature: Managing Warehouse Products
+	In order to register an invoice of products that want to enter the warehouse
 	And view the inventory list
 	As a warehouse manager
 	I want to be able to register an invoice
@@ -14,7 +14,7 @@ Scenario: Register an IncomingInvoice
 	And I have one product in invoice with the following info
 		| ProductCode | Count | Price |
 		| S7532       | 10    | 10000 |
-	Then I should be able to see the product in the list of goods for sell
+	Then I should be able to see the product in the list of products for sell
 
 Scenario: View Inventory List
 	Given I have already register of the following IncomingInvoice

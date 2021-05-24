@@ -9,20 +9,20 @@ using OnlineShopping.Persistence.EF.UnitOfWork;
 
 namespace OnlineShopping.Application.Tests.Integration
 {
-    public abstract class HelpTest : IDisposable
+    public abstract class IntegrationHookTest : IDisposable
     {
         private readonly TransactionScope _scope;
-        protected readonly AppDbContext DbContext;
+        protected readonly ApplicationDbContext DbContext;
         protected readonly UnitOfWork UnitOfWork;
         protected readonly IMapper Mapper;
 
-        protected HelpTest()
+        protected IntegrationHookTest()
         {
             _scope = new TransactionScope();
 
-            var builder = new DbContextOptionsBuilder<AppDbContext>();
+            var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             builder.UseSqlServer("Data Source=.;Initial Catalog=OnlineShoppingDb;Integrated Security=true");
-            DbContext = new AppDbContext(builder.Options);
+            DbContext = new ApplicationDbContext(builder.Options);
 
             UnitOfWork = new UnitOfWork(DbContext);
 

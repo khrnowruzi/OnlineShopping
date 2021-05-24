@@ -4,16 +4,16 @@ using OnlineShopping.Domain.Model.Goods;
 
 namespace OnlineShopping.Persistence.EF
 {
-    public class AppDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Product> Products { get; protected set; }
         public DbSet<Category> Categories { get; protected set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
             base.OnModelCreating(builder);
         }
     }

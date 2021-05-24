@@ -1,23 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopping.Domain.Model.Goods;
 
 namespace OnlineShopping.Persistence.EF.Repository.Goods
 {
-    public interface IProductRepository : IRepository
-    {
-        Task AddAsync(Product product);
-        Task<Product> GetByIdAsync(long id);
-        Task<List<Product>> GetAllByAsync();
-        void Delete(Product product);
-    }
     public class ProductRepository : IProductRepository
     {
-        private readonly AppDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ProductRepository(AppDbContext context)
+        public ProductRepository(ApplicationDbContext context)
         {
             _context = context;
         }

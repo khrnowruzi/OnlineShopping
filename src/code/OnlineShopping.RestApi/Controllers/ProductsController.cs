@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using OnlineShopping.Application.Goods;
-using OnlineShopping.Application.Models;
+using OnlineShopping.Application.Models.Goods;
+using OnlineShopping.Application.Services.Goods;
 
 namespace OnlineShopping.RestApi.Controllers
 {
@@ -16,7 +16,7 @@ namespace OnlineShopping.RestApi.Controllers
         {
             _service = service;
         }
-        
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -24,26 +24,25 @@ namespace OnlineShopping.RestApi.Controllers
         }
 
         [HttpPost]
-        public async Task<long> Register(RegisterProductDto dto)
+        public async Task<long> RegisterProduct(ProductRegisterDto dto)
         {
-            var test = await _service.Register(dto);
-            return test;
+            return await _service.RegisterProduct(dto);
         }
 
         [HttpGet("{id:long}")]
-        public async Task<RegisterProductDto> GetById(long id)
+        public async Task<ProductRegisterDto> GetProductById(long id)
         {
-            return await _service.GetById(id);
+            return await _service.GetProductById(id);
         }
 
         [HttpGet("AllProduct")]
-        public async Task<List<RegisterProductDto>> GetAll()
+        public async Task<List<ProductRegisterDto>> GetAllProducts()
         {
-            return await _service.GetAll();
+            return await _service.GetAllProducts();
         }
 
         [HttpDelete("{id:long}")]
-        public async Task DeleteById(long id)
+        public async Task DeleteProductById(long id)
         {
             await _service.DeleteById(id);
         }

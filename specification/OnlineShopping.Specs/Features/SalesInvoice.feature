@@ -1,5 +1,5 @@
 ﻿Feature: Sales Invoice Register
-	In order to register an invoice of goods sold
+	In order to register an invoice of products sold
 	As a sales manager
 	I want to be able to register an invoice
 

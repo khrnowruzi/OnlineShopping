@@ -4,6 +4,9 @@
       <NamedTestSelector>
         <TestName>OnlineShopping.Application.Tests.Integration.GoodsServiceTests.saves_a_product_into_database</TestName>
       </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>OnlineShopping.Application.Tests.Integration.GoodsServiceTests.Saves_a_product_into_database</TestName>
+      </NamedTestSelector>
     </IgnoredTests>
   </Settings>
 </ProjectConfiguration>

@@ -7,7 +7,7 @@ using TechTalk.SpecFlow.Assist;
 namespace OnlineShopping.Specs.Steps
 {
     [Binding]
-    public class DefiningGoodsSteps
+    public class ManagingProductSteps
     {
         private long _newId;
         private readonly RestClient _client = new RestClient("http://localhost:57028/");
@@ -26,8 +26,8 @@ namespace OnlineShopping.Specs.Steps
             _newId = _expectedProduct.Id = response.Data;
         }
 
-        [Then(@"I should be able to see the product in the list of goods")]
-        public void ThenIShouldBeAbleToSeeTheProductInTheListOfGoods()
+        [Then(@"I should be able to see the product in the list of products")]
+        public void ThenIShouldBeAbleToSeeTheProductInTheListOfProducts()
         {
             var request = new RestRequest($"api/products/{_newId}", DataFormat.Json);
             var response = _client.Get<Product>(request);
